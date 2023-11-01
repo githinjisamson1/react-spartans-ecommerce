@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/navbar/Navbar";
+import ProductComponent from "./productsComponent/ProductComponent";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
+const App = () => {
+  // states
+  const [products, setProducts] = useState([]);
 
-function App() {
+  // fetch API - all
+  const fetchProducts = () => {
+    fetch("https://itproducts.onrender.com/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  // run once
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route
+          exact
+          path="/products"
+          element={<ProductComponent products={products} />}
+        />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
+// prop drilling

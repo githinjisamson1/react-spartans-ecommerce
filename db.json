@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Carlota",
+      "product_brand": "McGahern",
+      "product_price": "cmcgahern0@imdb.com"
+    },
+    {
+      "id": 2,
+      "product_name": "Bayard",
+      "product_brand": "Chellenham",
+      "product_price": "bchellenham1@weather.com"
+    },
+    {
+      "id": 3,
+      "product_name": "Shelagh",
+      "product_brand": "Conaghy",
+      "product_price": "sconaghy2@live.com"
+    },
+    {
+      "id": 4,
+      "product_name": "Michal",
+      "product_brand": "Joan",
+      "product_price": "mjoan3@usa.gov"
+    },
+    {
+      "id": 5,
+      "product_name": "Rhodie",
+      "product_brand": "Hackly",
+      "product_price": "rhackly4@nba.com"
+    },
+    {
+      "id": 6,
+      "product_name": "Caro",
+      "product_brand": "Costell",
+      "product_price": "ccostell5@apache.org"
+    },
+    {
+      "id": 7,
+      "product_name": "Allegra",
+      "product_brand": "Firpi",
+      "product_price": "afirpi6@tripadvisor.com"
+    },
+    {
+      "id": 8,
+      "product_name": "Prent",
+      "product_brand": "McSkin",
+      "product_price": "pmcskin7@va.gov"
+    },
+    {
+      "id": 9,
+      "product_name": "Nicolais",
+      "product_brand": "Bateman",
+      "product_price": "nbateman8@vimeo.com"
+    },
+    {
+      "id": 10,
+      "product_name": "Kimmi",
+      "product_brand": "Cavil",
+      "product_price": "kcavil9@phpbb.com"
+    },
+    {
+      "id": 11,
+      "product_name": "Nathalie",
+      "product_brand": "Lindro",
+      "product_price": "nlindroa@prweb.com"
+    },
+    {
+      "id": 12,
+      "product_name": "Thacher",
+      "product_brand": "Churcher",
+      "product_price": "tchurcherb@ebay.com"
+    },
+    {
+      "id": 13,
+      "product_name": "Mable",
+      "product_brand": "Medwell",
+      "product_price": "mmedwellc@cmu.edu"
+    },
+    {
+      "id": 14,
+      "product_name": "Georgianna",
+      "product_brand": "Peoples",
+      "product_price": "gpeoplesd@bbb.org"
+    },
+    {
+      "id": 15,
+      "product_name": "Silvio",
+      "product_brand": "Downage",
+      "product_price": "sdownagee@merriam-webster.com"
+    }
+  ]
+}
