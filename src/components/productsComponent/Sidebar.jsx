@@ -2,6 +2,7 @@ import React from "react";
 import "./sidebar.css";
 import UpdateForm from "./UpdateForm";
 
+// inline destructuring/access props
 const Sidebar = ({
   products,
   filter,
@@ -14,15 +15,17 @@ const Sidebar = ({
   handleEditSubmit,
   showForm,
 }) => {
+  // categories as an array
   const categories = [
-    "all",
-    "smartphone",
-    "laptop",
-    "smartwatch",
-    "earbuds",
-    "keyboard",
+    "All",
+    "Smartphone",
+    "Laptop",
+    "Smartwatch",
+    "Earbuds",
+    "Keyboard",
   ];
 
+  // GET/filter by category/show products based on category
   const fetchByCategory = (category) => {
     const URL =
       category === "all"
@@ -34,7 +37,7 @@ const Sidebar = ({
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         handleFilteredProducts(data);
       })
       .catch((err) => {
@@ -44,6 +47,7 @@ const Sidebar = ({
 
   return (
     <div className="sidebar-container">
+      {/* Categories */}
       <ul className="sidebar">
         {categories.map((category) => {
           return (
@@ -58,8 +62,11 @@ const Sidebar = ({
           );
         })}
       </ul>
+
+      {/* Add New Listing Form */}
       <div className="create">
         <form className="create-product" onSubmit={handleSubmit}>
+          <h3>Add Listing</h3>
           <input
             type="text"
             name="brand"
@@ -75,14 +82,14 @@ const Sidebar = ({
             placeholder="description"
           />
           <input
-            type="text"
+            type="url"
             name="img"
             value={formData.img}
             onChange={handleChange}
             placeholder="image"
           />
           <input
-            type="text"
+            type="number"
             name="price"
             value={formData.price}
             onChange={handleChange}
@@ -96,7 +103,7 @@ const Sidebar = ({
             placeholder="title"
           />
           <br />
-          <input type="submit" />
+          <input type="submit" value="Add" />
         </form>
         {showForm && (
           <UpdateForm

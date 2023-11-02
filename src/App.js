@@ -7,7 +7,7 @@ import Contact from "./components/contact/Contact";
 const App = () => {
   // !STATES
 
-  // maintain all states at top level
+  // state for fetched products
   const [products, setProducts] = useState([]);
 
   // state for creating a new product
@@ -83,7 +83,7 @@ const App = () => {
       });
   };
 
-  // run once/initial render
+  // !run once/initial render
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -121,12 +121,13 @@ const App = () => {
   // handle add new product form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // POST after submitting
+    // POST after submitting postForm
     postListing();
   };
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
+    // PATCH after submitting updateForm
     patchProduct();
   };
 
@@ -146,7 +147,6 @@ const App = () => {
     <>
       <Navbar />
       <Routes>
-        <Route exact path="/contact" element={<Contact />} />
         <Route
           exact
           path="/products"
@@ -166,6 +166,8 @@ const App = () => {
             />
           }
         />
+        <Route exact path="/contact" element={<Contact />} />
+
       </Routes>
     </>
   );

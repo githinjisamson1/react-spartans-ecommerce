@@ -11,6 +11,9 @@ const ProductList = ({
   showForm,
   setShowForm,
 }) => {
+
+
+  // !DELETE
   const deleteProduct = (id) => {
     fetch(`https://itproducts.onrender.com/products/${id}`, {
       method: "DELETE",
@@ -19,7 +22,7 @@ const ProductList = ({
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         handleDelete(id);
       })
       .catch((err) => {
@@ -27,11 +30,16 @@ const ProductList = ({
       });
   };
 
-  const handleEditClick = () => {
+  
+
+  // handle updating an already displayed product
+  const handleEditClick = (id) => {
     setShowForm(!showForm);
   };
+
   return (
     <>
+      {/* list of products */}
       <ul className="products">
         {products.map((product) => {
           const { id, brand, description, img, price, title } = product;
@@ -54,7 +62,9 @@ const ProductList = ({
                   >
                     <i class="fa-solid fa-trash"></i>
                   </button>
-                  <button className="edit-btn" onClick={handleEditClick}>
+                  <button className="edit-btn" onClick={()=>{
+                    handleEditClick(id)
+                  }}>
                     <i class="fa-solid fa-pen-to-square"></i>
                   </button>
                 </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <h1>Spartans</h1>
+      <h1>SpartansTech</h1>
 
       {/* remember key attribute */}
       <ul>
