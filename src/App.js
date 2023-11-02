@@ -3,6 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import ProductComponent from "./components/productsComponent/ProductComponent";
 import { Routes, Route } from "react-router-dom";
 import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   // !STATES
@@ -190,6 +191,7 @@ const App = () => {
         />
         <Route exact path="/contact" element={<Contact />} />
       </Routes>
+      <Footer/>
     </>
   );
 };

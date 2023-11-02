@@ -39,7 +39,7 @@ const Contact = () => {
               Similique, impedit.
             </p>
             <h3 className="name">Ted</h3>
-            <p className="tel">12345678</p>
+            <p className="tel">87654321</p>
           </div>
 
           {/* ===== card 4 ===== */}
@@ -50,7 +50,7 @@ const Contact = () => {
               magni?
             </p>
             <h3 className="name">Victor</h3>
-            <p className="tel">12345678</p>
+            <p className="tel">21324354</p>
           </div>
 
           {/* ===== card 5 ===== */}
@@ -61,7 +61,7 @@ const Contact = () => {
               esse?
             </p>
             <h3 className="name">Julius</h3>
-            <p className="tel">12345678</p>
+            <p className="tel">89786756</p>
           </div>
           <div className="card">
             <h2 className="role">HR</h2>
@@ -70,7 +70,7 @@ const Contact = () => {
               fugit.
             </p>
             <h3 className="name">Samson</h3>
-            <p className="tel">12345678</p>
+            <p className="tel">45647585</p>
           </div>
         </div>
       </div>
