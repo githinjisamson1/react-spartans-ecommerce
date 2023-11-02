@@ -1,7 +1,10 @@
-.footer{
-background-color: #333533;
-padding: 10px;
-text-align: center;
-color: #fff;
-font-weight: 200;
+.footer {
+  background-color: #333533;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: 200;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
 }
