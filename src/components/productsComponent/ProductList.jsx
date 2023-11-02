@@ -38,21 +38,26 @@ const ProductList = ({
           return (
             <li key={id}>
               <img src={img} alt={description} />
-              <h1>{title}</h1>
+              <h2>{title}</h2>
               <p>Brand: {brand}</p>
               <p>
                 Price: <span>{price}</span>
               </p>
               <div className="btns">
-                <button>Add to Cart</button>
-                <button
-                  onClick={() => {
-                    deleteProduct(id);
-                  }}
-                >
-                  Delete
-                </button>
-                <button onClick={handleEditClick}>Edit</button>
+                <button className="add-to-cart">Add to Cart</button>
+                <div className="del-edit">
+                  <button
+                    className="delete-btn"
+                    onClick={() => {
+                      deleteProduct(id);
+                    }}
+                  >
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                  <button className="edit-btn" onClick={handleEditClick}>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </div>
               </div>
             </li>
           );

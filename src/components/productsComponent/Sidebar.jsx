@@ -59,7 +59,6 @@ const Sidebar = ({
         })}
       </ul>
       <div className="create">
-        <button>Add Listing</button>
         <form className="create-product" onSubmit={handleSubmit}>
           <input
             type="text"

@@ -33,24 +33,39 @@ button {
   padding: 10px;
   outline: none;
   border-radius: 5px;
-  border: 1px solid blue;
+  /* border: 1px solid #0466c8; */
+  border: none;
   cursor: pointer;
 }
-.btns button:nth-child(1) {
-  background-color: #fff;
-  color: blue;
-  transition: all 300ms ease;
+button:hover{
+  border: 1px solid #0466c8;
 }
-.btns button:nth-child(1):hover {
-  background-color: blue;
-  color: #fff;
-}
-.btns button:nth-child(2) {
-  background-color: blue;
+.add-to-cart {
+  background-color: #0466c8;
   color: #fff;
   transition: all 300ms ease;
 }
-.btns button:nth-child(2):hover {
+.add-to-cart:hover {
   background-color: #fff;
-  color: blue;
+  color: #0466c8;
+}
+.delete-btn {
+  background-color: #da2c38;
+  color: #fff;
+  transition: all 300ms ease;
+  margin-right: .5rem;
+}
+.delete-btn:hover {
+  background-color: #fff;
+  color: #0466c8;
+}
+
+.edit-btn {
+  background-color: #57cc99;
+  color: #fff;
+  transition: all 300ms ease;
+}
+.edit-btn:hover {
+  background-color: #fff;
+  color: #0466c8;
 }

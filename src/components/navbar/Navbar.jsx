@@ -3,9 +3,10 @@ import "./navbar.css";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const navItems = ["products", "contact"];
+  // navigation links as an array
+  const navItems = ["Products", "Contact"];
 
-  // apply styling to active link item
+  // apply styling to active link item/isActive boolean flag is passed as prop from NavLink
   const navLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -14,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <h1>ITS</h1>
+      <h1>Spartans</h1>
 
       {/* remember key attribute */}
       <ul>

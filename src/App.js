@@ -5,11 +5,12 @@ import { Routes, Route } from "react-router-dom";
 import Contact from "./components/contact/Contact";
 
 const App = () => {
+  // !STATES
+
   // maintain all states at top level
   const [products, setProducts] = useState([]);
-  // const [filter, setFilter] = useState("");
 
-  // state for user inputs
+  // state for creating a new product
   const [formData, setFormData] = useState({
     brand: "",
     description: "",
@@ -18,17 +19,19 @@ const App = () => {
     title: "",
   });
 
-   const [showForm, setShowForm] = useState(false);
+  // state to show/hide update form
+  const [showForm, setShowForm] = useState(false);
 
   // !HTTP METHODS
-  // fetch API - all
+
+  // GET
   const fetchProducts = () => {
     fetch("https://itproducts.onrender.com/products")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProducts(data);
       })
       .catch((err) => {
@@ -36,6 +39,7 @@ const App = () => {
       });
   };
 
+  // POST
   const postListing = () => {
     fetch("https://itproducts.onrender.com/products", {
       method: "POST",
@@ -49,7 +53,7 @@ const App = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         handleAddListing(data);
       })
       .catch((err) => {
@@ -57,6 +61,7 @@ const App = () => {
       });
   };
 
+  // PATCH
   const patchProduct = () => {
     fetch("https://itproducts.onrender.com/products/", {
       method: "PATCH",
@@ -70,7 +75,7 @@ const App = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         handlePatchProduct(data);
       })
       .catch((err) => {
@@ -85,23 +90,12 @@ const App = () => {
 
   // !EVENT LISTENERS
 
-  // const handleFilter = (category) => {
-  //   setFilter(category);
-  //   console.log(filter);
-  //   handleProducts();
-  // };
-
-  // const handleProducts = () => {
-  //   const newProducts = products.filter((product) => {
-  //     return product.category.toLowerCase() === filter.toLowerCase();
-  //   });
-  //   setProducts(newProducts);
-  // };
-
+  // filter items to display by category
   const handleFilteredProducts = (items) => {
     setProducts(items);
   };
 
+  // delete an item from products array
   const handleDelete = (id) => {
     const remProducts = products.filter((product) => {
       return product.id !== id;
@@ -109,21 +103,25 @@ const App = () => {
     setProducts(remProducts);
   };
 
+  // add a new product to products array
   const handleAddListing = (item) => {
     setProducts([...products, item]);
   };
 
+  // handle input box changes dynamically
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    // dynamic object properties
+    // spread old formData, update using dynamic object properties
     setFormData({ ...formData, [name]: value });
     // console.log(formData)
   };
 
+  // handle add new product form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    // POST after submitting
     postListing();
   };
 
