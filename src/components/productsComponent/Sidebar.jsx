@@ -4,16 +4,10 @@ import UpdateForm from "./UpdateForm";
 
 // inline destructuring/access props
 const Sidebar = ({
-  products,
-  filter,
-  handleFilter,
   handleFilteredProducts,
-  handleAddListing,
   handleChange,
   formData,
   handleSubmit,
-  handleEditSubmit,
-  showForm,
 }) => {
   // categories as an array
   const categories = [
@@ -28,7 +22,7 @@ const Sidebar = ({
   // GET/filter by category/show products based on category
   const fetchByCategory = (category) => {
     const URL =
-      category === "all"
+      category.toLowerCase() === "all"
         ? "https://itproducts.onrender.com/products"
         : `https://itproducts.onrender.com/products?category=${category.toLowerCase()}`;
 
@@ -105,13 +99,6 @@ const Sidebar = ({
           <br />
           <input type="submit" value="Add" />
         </form>
-        {showForm && (
-          <UpdateForm
-            formData={formData}
-            handleChange={handleChange}
-            handleEditSubmit={handleEditSubmit}
-          />
-        )}
       </div>
     </div>
   );

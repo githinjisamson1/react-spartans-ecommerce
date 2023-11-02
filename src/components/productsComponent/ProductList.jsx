@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-import "./productList.css";
 import UpdateForm from "./UpdateForm";
+import "./productList.css";
 
 const ProductList = ({
   products,
   handleDelete,
-  handleChange,
-  formData,
+  handleEditChange,
+  editFormData,
   handleEditSubmit,
   showForm,
   setShowForm,
 }) => {
-
-
   // !DELETE
   const deleteProduct = (id) => {
     fetch(`https://itproducts.onrender.com/products/${id}`, {
@@ -30,10 +27,8 @@ const ProductList = ({
       });
   };
 
-  
-
-  // handle updating an already displayed product
-  const handleEditClick = (id) => {
+  // handle hide/show update form
+  const handleEditClick = () => {
     setShowForm(!showForm);
   };
 
@@ -60,12 +55,10 @@ const ProductList = ({
                       deleteProduct(id);
                     }}
                   >
-                    <i class="fa-solid fa-trash"></i>
+                    <i className="fa-solid fa-trash"></i>
                   </button>
-                  <button className="edit-btn" onClick={()=>{
-                    handleEditClick(id)
-                  }}>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                  <button className="edit-btn" onClick={handleEditClick}>
+                    <i className="fa-solid fa-pen-to-square"></i>
                   </button>
                 </div>
               </div>
@@ -73,6 +66,14 @@ const ProductList = ({
           );
         })}
       </ul>
+      {showForm && (
+        <UpdateForm
+          handleEditChange={handleEditChange}
+          editFormData={editFormData}
+          handleEditSubmit={handleEditSubmit}
+          showForm={showForm}
+        />
+      )}
     </>
   );
 };

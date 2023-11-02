@@ -1,44 +1,52 @@
 import React from "react";
 
-const UpdateForm = ({ handleChange, formData, handleEditSubmit }) => {
+const UpdateForm = ({ handleEditChange, editFormData, handleEditSubmit, showForm }) => {
+  const showFormStyles = {
+    display: showForm ? "block" : "none",
+  };
   return (
-    <form onSubmit={handleEditSubmit}>
+    <form
+      className="update-form"
+      onSubmit={handleEditSubmit}
+      style={showFormStyles}
+    >
+      <h2>Edit Listing</h2>
       <input
         type="text"
         name="brand"
-        value={formData.brand}
-        onChange={handleChange}
+        value={editFormData.brand}
+        onChange={handleEditChange}
         placeholder="brand"
       />
       <input
         type="text"
         name="description"
-        value={formData.description}
-        onChange={handleChange}
+        value={editFormData.description}
+        onChange={handleEditChange}
         placeholder="description"
       />
       <input
         type="text"
         name="img"
-        value={formData.img}
-        onChange={handleChange}
+        value={editFormData.img}
+        onChange={handleEditChange}
         placeholder="image"
       />
       <input
         type="text"
         name="price"
-        value={formData.price}
-        onChange={handleChange}
+        value={editFormData.price}
+        onChange={handleEditChange}
         placeholder="price"
       />
       <input
         type="text"
         name="title"
-        value={formData.title}
-        onChange={handleChange}
+        value={editFormData.title}
+        onChange={handleEditChange}
         placeholder="title"
       />
-      <input type="submit" />
+      <input type="submit" value="Apply" />
     </form>
   );
 };

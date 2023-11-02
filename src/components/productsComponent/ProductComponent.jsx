@@ -5,13 +5,13 @@ import "./productComponent.css";
 
 const ProductComponent = ({
   products,
-  handleFilter,
   handleFilteredProducts,
   handleDelete,
-  handleAddLising,
   handleChange,
   formData,
   handleSubmit,
+  handleEditChange,
+  editFormData,
   handleEditSubmit,
   showForm,
   setShowForm
@@ -20,23 +20,21 @@ const ProductComponent = ({
     <div className="body">
       <Sidebar
         products={products}
-        handleFilter={handleFilter}
         handleFilteredProducts={handleFilteredProducts}
-        handleAddLising={handleAddLising}
         handleChange={handleChange}
         formData={formData}
         handleSubmit={handleSubmit}
-        handleEditSubmit={handleEditSubmit}
         showForm={showForm}
       />
       <ProductList
         products={products}
         handleDelete={handleDelete}
-        handleChange={handleChange}
-        formData={formData}
+        handleEditChange={handleEditChange}
+        editFormData={editFormData}
         handleEditSubmit={handleEditSubmit}
         showForm={showForm}
         setShowForm={setShowForm}
+        
       />
     </div>
   );

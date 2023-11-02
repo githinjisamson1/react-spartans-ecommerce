@@ -19,6 +19,15 @@ const App = () => {
     title: "",
   });
 
+  // state for creating a new product
+  const [editFormData, setEditFormData] = useState({
+    brand: "",
+    description: "",
+    img: "",
+    price: "",
+    title: "",
+  });
+
   // state to show/hide update form
   const [showForm, setShowForm] = useState(false);
 
@@ -63,13 +72,13 @@ const App = () => {
 
   // PATCH
   const patchProduct = () => {
-    fetch("https://itproducts.onrender.com/products/", {
+    fetch("https://itproducts.onrender.com/products/1", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(editFormData),
     })
       .then((response) => {
         return response.json();
@@ -125,6 +134,17 @@ const App = () => {
     postListing();
   };
 
+  // handle edit form input box changes dynamically
+  const handleEditChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    // spread old formData, update using dynamic object properties
+    setEditFormData({ ...editFormData, [name]: value });
+    // console.log(formData)
+  };
+
+  // TODO: work on how to pass id of product to enable patch
   const handleEditSubmit = (e) => {
     e.preventDefault();
     // PATCH after submitting updateForm
@@ -148,7 +168,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route
-          exact
+          // exact
+          index
           path="/products"
           element={
             <ProductComponent
@@ -159,15 +180,15 @@ const App = () => {
               handleChange={handleChange}
               formData={formData}
               handleSubmit={handleSubmit}
+              handleEditChange={handleEditChange}
+              editFormData={editFormData}
               handleEditSubmit={handleEditSubmit}
               setShowForm={setShowForm}
               showForm={showForm}
-              index
             />
           }
         />
         <Route exact path="/contact" element={<Contact />} />
-
       </Routes>
     </>
   );
@@ -176,4 +197,4 @@ const App = () => {
 export default App;
 
 // passing props prop drilling
-// !!useContext
+// !!!useContext
